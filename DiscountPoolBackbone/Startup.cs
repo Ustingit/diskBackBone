@@ -67,6 +67,13 @@ namespace DiscountPoolBackbone
 					pattern: "{controller=Home}/{action=Index}/{id?}");
 				endpoints.MapRazorPages();
 			});
+
+			using (var serviceScope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
+			{
+				var context = serviceScope.ServiceProvider.GetRequiredService<DiscountsContext>();
+				context.Database.Migrate();
+				context.Database.EnsureCreated();
+			}
 		}
 	}
 }
