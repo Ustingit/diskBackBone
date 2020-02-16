@@ -21,7 +21,18 @@ namespace DiscountPoolBackbone.Controllers
         // GET: Controlling
         public async Task<IActionResult> Index()
         {
-            var x = await _context.Clients.ToListAsync();
+            var x = await _context.Employees.ToListAsync();
+            _context.Employees.Add(new Employee() { 
+                Address = "matusevicha 5", ConsultationCost = 500, 
+                CreatedDate = DateTime.Now, DateOfBirth = DateTime.Now,
+                DepartmentId = 1, DocumentFrom = DateTime.Now, DocumentNumber = "vg2385962395",
+                DocumentTo = DateTime.Now, EmployeeType = Models.enums.EmployeeType.Boss,
+                FatherName = "Viktorovich", FirstName = "Yuryi", IsActive = true,
+                LastName = "Us", Note = "boos is boss", PassportAddresss = "matusevicha 5",
+                Phone = "+235723553325", Salary = 4000, Sex = 1, TotalEarned = 0
+            });
+            await _context.SaveChangesAsync();
+            var x2 = await _context.Employees.ToListAsync();
 
             return View(await _context.Clients?.Where(x => x.IsActive == true)?.ToListAsync() ?? new List<Client>());
         }
