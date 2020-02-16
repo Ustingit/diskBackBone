@@ -21,6 +21,7 @@ namespace DiscountPoolBackbone.Controllers
         // GET: Controlling
         public async Task<IActionResult> Index()
         {
+            /* 
             var x = await _context.Employees.ToListAsync();
             _context.Employees.Add(new Employee() { 
                 Address = "matusevicha 5", ConsultationCost = 500, 
@@ -32,7 +33,7 @@ namespace DiscountPoolBackbone.Controllers
                 Phone = "+235723553325", Salary = 4000, Sex = 1, TotalEarned = 0
             });
             await _context.SaveChangesAsync();
-            var x2 = await _context.Employees.ToListAsync();
+            var x2 = await _context.Employees.ToListAsync(); */
 
             return View(await _context.Clients?.Where(x => x.IsActive == true)?.ToListAsync() ?? new List<Client>());
         }

@@ -11,6 +11,7 @@ namespace DiscountPoolBackbone.Models
 		public DbSet<Employee> Employees { get; set; }
 		public DbSet<Trainer> Trainers { get; set; }
 		public DbSet<Visit> Visits { get; set; }
+		public DbSet<Article> Articles { get; set; }
 
 		public DiscountsContext(DbContextOptions<DiscountsContext> options)
 			: base(options)

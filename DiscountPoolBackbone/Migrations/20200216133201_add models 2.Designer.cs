@@ -4,68 +4,22 @@ using DiscountPoolBackbone.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DiscountPoolBackbone.Migrations
 {
     [DbContext(typeof(DiscountsContext))]
-    partial class DiscountsContextModelSnapshot : ModelSnapshot
+    [Migration("20200216133201_add models 2")]
+    partial class addmodels2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.1")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("DiscountPoolBackbone.Models.Article", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("AdditionalUrl")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool?>("AreAllPhotoFromFolder")
-                        .HasColumnType("bit");
-
-                    b.Property<int>("AuthorId")
-                        .HasColumnType("int");
-
-                    b.Property<decimal?>("Cost")
-                        .HasColumnType("decimal(18,3)");
-
-                    b.Property<DateTime>("CreateDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Header")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("ImageId")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("IsActual")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("LikedClients")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("MainContent")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Note")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("PublicationDate")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Articles");
-                });
 
             modelBuilder.Entity("DiscountPoolBackbone.Models.Client", b =>
                 {

@@ -1,0 +1,142 @@
+USE [discountPoolDB]
+GO
+
+/****** Object: Table [dbo].[Clients] Script Date: 16.02.2020 16:35:42 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Sales] (
+	[Id]    INT  IDENTITY (1, 1) NOT NULL,
+    [SellDate] DATETIME2 (7) NOT NULL,
+    [Currencies] INT NOT NULL,
+    [EmployeeId] INT NOT NULL,
+    [Sum] DECIMAL(18, 3) NOT NULL,
+    [Note] NVARCHAR (MAX) NULL,
+    [OrderId]         INT            NULL,
+    [GoodId]         INT            NULL,
+    [ClientId]         INT            NULL,
+    [SaleType]         INT            NULL
+)
+
+CREATE TABLE [dbo].[Articles] (
+	[Id]    INT  IDENTITY (1, 1) NOT NULL,
+    [CreateDate] DATETIME2 (7) NOT NULL,
+	[Header] NVARCHAR (MAX) NOT NULL,
+	[MainContent] NVARCHAR (MAX) NOT NULL,
+	[ImageId] INT NULL,
+	[Note] NVARCHAR (MAX) NOT NULL,
+	[IsActual] bit NOT NULL,
+	[AreAllPhotoFromFolder] bit NULL,
+	[AuthorId] INT NOT NULL,
+	[Cost] DECIMAL(18, 3) NULL,
+	[AdditionalUrl] NVARCHAR (MAX) NOT NULL,
+	[PublicationDate] DATETIME2 (7) NULL,
+	[LikedClients] NVARCHAR (MAX) NULL
+)
+
+CREATE TABLE [dbo].[ExchangeRates] (
+	[Id]    INT  IDENTITY (1, 1) NOT NULL,
+    [Date] DATETIME2 (7) NOT NULL,
+    [BynToUsdRate] DECIMAL(18, 3) NOT NULL,
+    [UsdToBynRate] DECIMAL(18, 3) NOT NULL,
+    [UsdToRusRubRate] DECIMAL(18, 3) NULL,
+    [RusRubToUsdRate] DECIMAL(18, 3) NULL,
+    [RusRubToBynRate] DECIMAL(18, 3) NULL,
+    [BynToRusRubRate] DECIMAL(18, 3) NULL
+)
+
+CREATE TABLE [dbo].[Trainers] (
+	[Id]    INT  IDENTITY (1, 1) NOT NULL,
+	[Note] NVARCHAR (MAX) NULL,
+	[SaleSelfCost] DECIMAL(18, 3) NOT NULL,
+    [SaleTax] DECIMAL(18, 3) NULL,
+    [SaleDelivery] DECIMAL(18, 3) NULL,
+    [SaleOtherCosts] DECIMAL(18, 3) NULL,
+	[SaleNote] NVARCHAR (MAX) NULL,
+	[TrainerQuality] INT NOT NULL,
+	[InstructionId] INT NULL,
+    [SaleDate] DATETIME2 (7) NOT NULL,
+    [PurchaseOrThrowDate] DATETIME2 (7) NULL,
+    [MaxWeight] DECIMAL(18, 3) NULL,
+    [VideoDescriptionLink] NVARCHAR (MAX) NULL,
+    [PhotoSetId] INT  NULL
+)
+
+CREATE TABLE [dbo].[Visits] (
+	[Id]    INT  IDENTITY (1, 1) NOT NULL,
+	[ClientId] INT NOT NULL,
+	[StartDate] DATETIME2 (7) NOT NULL,
+	[EndDate] DATETIME2 (7) NULL,
+	[Duration] time NULL,
+	[Note] NVARCHAR (MAX) NULL,
+	[CoachId] INT NULL
+)
+
+CREATE TABLE [dbo].[Employees] (
+    [Id]               INT            IDENTITY (1, 1) NOT NULL,
+    [FirstName]        NVARCHAR (MAX) NULL,
+    [LastName]         NVARCHAR (MAX) NULL,
+    [FatherName]       NVARCHAR (MAX) NULL,
+    [Phone]            NVARCHAR (MAX) NULL,
+    [Address]          NVARCHAR (MAX) NULL,
+    [PassportAddresss] NVARCHAR (MAX) NULL,
+    [DateOfBirth]      DATETIME2 (7)  NOT NULL,
+    [CreatedDate]      DATETIME2 (7)  NOT NULL,
+    [FireDate]      DATETIME2 (7)  NOT NULL,
+	[FireReasonAndNote]            NVARCHAR (MAX) NULL,
+    [DepartmentId]     INT            NULL,
+    [DocumentNumber]   NVARCHAR (MAX) NULL,
+    [DocumentFrom]     DATETIME2 (7)  NULL,
+    [DocumentTo]       DATETIME2 (7)  NULL,
+    [ConfigurationId]  INT            NULL,
+    [Note]             NVARCHAR (MAX) NULL,
+    [Languages]        NVARCHAR (50)  NULL,
+    [Sex]              INT            NOT NULL,
+    [IsActive]         BIT            NULL,
+    [EmployeeType]              INT            NOT NULL,
+    [SmallPhotoId]              INT            NULL,
+    [LargePhotoId]              INT            NULL,
+    [VideoPortfolioId]              INT            NULL,
+    [PhotoPortfolioId]              INT            NULL,
+    [VkId]              INT            NULL,
+    [InstagrammId]              INT            NULL,
+    [FacebookId]              INT            NULL,
+    [OdnoklassnikiId]              INT            NULL,
+    [PinterestId]              INT            NULL,
+    [TwitterId]              INT            NULL,
+    [TotalEarned] DECIMAL(18, 3) NULL,
+    [Salary] DECIMAL(18, 3) NOT NULL,
+    [ConsultationCost] DECIMAL(18, 3) NOT NULL
+)
+
+CREATE TABLE [dbo].[Clients] (
+    [Id]               INT            IDENTITY (1, 1) NOT NULL,
+    [FirstName]        NVARCHAR (MAX) NULL,
+    [LastName]         NVARCHAR (MAX) NULL,
+    [FatherName]       NVARCHAR (MAX) NULL,
+    [Phone]            NVARCHAR (MAX) NULL,
+    [Address]          NVARCHAR (MAX) NULL,
+    [PassportAddresss] NVARCHAR (MAX) NULL,
+    [DateOfBirth]      DATETIME2 (7)  NOT NULL,
+    [CreatedDate]      DATETIME2 (7)  NOT NULL,
+    [Discount]         INT            NULL,
+    [TotalPurchases]   INT            NULL,
+    [DepartmentId]     INT            NULL,
+    [DocumentNumber]   NVARCHAR (MAX) NULL,
+    [DocumentFrom]     DATETIME2 (7)  NULL,
+    [DocumentTo]       DATETIME2 (7)  NULL,
+    [IsVip]            BIT            NULL,
+    [ConfigurationId]  INT            NULL,
+    [Note]             NVARCHAR (MAX) NULL,
+    [Language]         INT            NOT NULL,
+    [Sex]              INT            NOT NULL,
+    [IsActive]         BIT            NULL,
+    [LastVisit]        DATETIME2 (7)  NULL,
+    [CurrentCoachId]   INT            NULL,
+    [CoachNote]        NVARCHAR (MAX) NULL
+);
+
+

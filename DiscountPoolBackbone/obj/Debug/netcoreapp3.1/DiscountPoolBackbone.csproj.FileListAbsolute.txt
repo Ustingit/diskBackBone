@@ -177,3 +177,8 @@ D:\SHARP\core\DiscountPoolBackbone\DiscountPoolBackbone\obj\Debug\netcoreapp3.1\
 D:\SHARP\core\DiscountPoolBackbone\DiscountPoolBackbone\obj\Debug\netcoreapp3.1\Razor\Views\Controlling\Details.cshtml.g.cs
 D:\SHARP\core\DiscountPoolBackbone\DiscountPoolBackbone\obj\Debug\netcoreapp3.1\Razor\Views\Controlling\Edit.cshtml.g.cs
 D:\SHARP\core\DiscountPoolBackbone\DiscountPoolBackbone\obj\Debug\netcoreapp3.1\Razor\Views\Controlling\Index.cshtml.g.cs
+D:\SHARP\core\DiscountPoolBackbone\DiscountPoolBackbone\obj\Debug\netcoreapp3.1\Razor\Views\Articles\Create.cshtml.g.cs
+D:\SHARP\core\DiscountPoolBackbone\DiscountPoolBackbone\obj\Debug\netcoreapp3.1\Razor\Views\Articles\Delete.cshtml.g.cs
+D:\SHARP\core\DiscountPoolBackbone\DiscountPoolBackbone\obj\Debug\netcoreapp3.1\Razor\Views\Articles\Details.cshtml.g.cs
+D:\SHARP\core\DiscountPoolBackbone\DiscountPoolBackbone\obj\Debug\netcoreapp3.1\Razor\Views\Articles\Edit.cshtml.g.cs
+D:\SHARP\core\DiscountPoolBackbone\DiscountPoolBackbone\obj\Debug\netcoreapp3.1\Razor\Views\Articles\Index.cshtml.g.cs
