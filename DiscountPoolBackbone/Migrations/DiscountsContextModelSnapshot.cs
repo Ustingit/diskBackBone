@@ -29,7 +29,7 @@ namespace DiscountPoolBackbone.Migrations
                     b.Property<string>("AdditionalUrl")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool?>("AreAllPhotoFromFolder")
+                    b.Property<bool>("AreAllPhotoFromFolder")
                         .HasColumnType("bit");
 
                     b.Property<int>("AuthorId")

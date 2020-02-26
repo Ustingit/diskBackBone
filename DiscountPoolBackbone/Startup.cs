@@ -71,8 +71,8 @@ namespace DiscountPoolBackbone
 			using (var serviceScope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
 			{
 				var context = serviceScope.ServiceProvider.GetRequiredService<DiscountsContext>();
-				context.Database.Migrate();
-				context.Database.EnsureCreated();
+				//context.Database.Migrate();
+				//context.Database.EnsureCreated();
 			}
 		}
 	}

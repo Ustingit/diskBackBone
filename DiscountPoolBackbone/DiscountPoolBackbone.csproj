@@ -3,6 +3,9 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UserSecretsId>aspnet-DiscountPoolBackbone-352AC451-3F1F-44B3-96BB-B1AEA9C82032</UserSecretsId>
+    <AspNetCoreHostingModel>OutOfProcess</AspNetCoreHostingModel>
+    <AspNetCoreModuleName>AspNetCoreModuleV2</AspNetCoreModuleName>
+    <!--https://stackoverflow.com/questions/53811569/http-error-500-30-ancm-in-process-start-failure-->
   </PropertyGroup>
 
 

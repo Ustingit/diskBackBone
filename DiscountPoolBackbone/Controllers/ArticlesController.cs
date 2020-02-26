@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DiscountPoolBackbone.Models;
+using System.Text.Json;
 
 namespace DiscountPoolBackbone.Controllers
 {
@@ -147,6 +148,20 @@ namespace DiscountPoolBackbone.Controllers
         private bool ArticleExists(int id)
         {
             return _context.Articles.Any(e => e.Id == id);
+        }
+
+        public async Task<string> GetArticles(int? id = null, bool isActive = true, 
+            DateTime? dateFrom = null, DateTime? dateTo = null)
+        {
+            var result = _context.Articles;
+
+            //doesn't work, why ?
+            if (id != null) result.Where(x => x.Id == id);
+            if (!isActive) result.Where(x => x.IsActual == false && x.IsActual == true);
+            if (dateFrom != null) result.Where(x => x.CreateDate >= dateFrom);
+            if (dateTo != null) result.Where(x => x.CreateDate <= dateTo);
+
+            return JsonSerializer.Serialize(await result.ToListAsync());
         }
     }
 }

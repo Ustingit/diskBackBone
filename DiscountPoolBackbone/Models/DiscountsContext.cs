@@ -16,7 +16,7 @@ namespace DiscountPoolBackbone.Models
 		public DiscountsContext(DbContextOptions<DiscountsContext> options)
 			: base(options)
 		{
-			Database.EnsureCreated();
+			//Database.EnsureCreated();
 		}
 	}
 }
