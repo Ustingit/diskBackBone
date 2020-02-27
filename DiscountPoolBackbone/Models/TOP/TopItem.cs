@@ -9,7 +9,7 @@ namespace DiscountPoolBackbone.Models.TOP
     public class TopItem
     {
         [Key]
-        public int Id { get; set; }
+        public int Id { get; set; }  // TODO: use Guid Id ??
         [Column(TypeName = "decimal(18,3)")]
         public decimal PopularRate { get; set; }
 
@@ -59,7 +59,7 @@ namespace DiscountPoolBackbone.Models.TOP
         }
 
         public bool IsActive { get; set; }
-        public bool? IsVIP { get; set; }
+        public bool IsVIP { get; set; }
 
         public DateTime? VipExpirationDate { get; set; }
 
@@ -135,6 +135,71 @@ namespace DiscountPoolBackbone.Models.TOP
         [Column(TypeName = "decimal(18,3)")]
         public decimal? vek21Price { get; set; }
 
-        public bool? IsAdultContent { get; set; }
+        public bool IsAdultContent { get; set; }
     }
 }
+
+
+/*
+ CREATE TABLE TopItems 
+(
+    Id int IDENTITY(1,1) PRIMARY KEY,
+    PopularRate decimal(18,3) NOT NULL DEFAULT(0),
+    [Type] int NOT NULL,
+    [Name] nvarchar(200) NOT NULL,
+    ShorDescription nvarchar(500) NULL,
+    Description nvarchar(MAX) NOT NULL,
+    Author int NOT NULL,
+    LocalPrice decimal(18,3) NULL,
+    WorldPrice decimal(18,3) NULL,
+    SmallPhotoId int NULL,
+    MainPhotoId int NULL,
+    PhotosIds nvarchar(MAX) NULL,
+    LikedUsersIds nvarchar(MAX) NULL,
+    IsActive int NOT NULL,
+    IsVIP int NULL,
+    VipExpirationDate datetime NULL,
+    TotalSum decimal(18,3) NULL DEFAULT(0),
+    InstagramUrl nvarchar(200) NULL,
+    InstagramLikesCount int NULL,
+    FacebookUrl nvarchar(200) NULL,
+    FacebookLikesCount int NULL,
+    VkUrl nvarchar(200) NULL,
+    VkLikesCount int NULL,
+    PinterestUrl nvarchar(200) NULL,
+    PinterestLikesCount int NULL,
+    MediumUrl nvarchar(200) NULL,
+    MediumLikesCount int NULL,
+    AmazonUrl nvarchar(200) NULL,
+    AmazonLikesCount int NULL,
+    AmazonPrice decimal(18,3) NULL,
+    EbayUrl nvarchar(200) NULL,
+    EbayLikesCount int NULL,
+    EbayPrice decimal(18,3) NULL,
+    AvitoUrl nvarchar(200) NULL,
+    AvitoLikesCount int NULL,
+    AvitoPrice decimal(18,3) NULL,
+    OlxUrl nvarchar(200) NULL,
+    OlxLikesCount int NULL,
+    OlxPrice decimal(18,3) NULL,
+    KufarUrl nvarchar(200) NULL,
+    KufarLikesCount int NULL,
+    KufarPrice decimal(18,3) NULL,
+    OnlinerUrl nvarchar(200) NULL,
+    OnlinerLikesCount int NULL,
+    OnlinerPrice decimal(18,3) NULL,
+    vek21Url nvarchar(200) NULL,
+    vek21LikesCount int NULL,
+    vek21Price decimal(18,3) NULL,
+    IsAdultContent int NOT NULL
+)
+
+
+    ALTER TABLE TopItems
+           ALTER COLUMN IsAdultContent bit NOT NULL;
+           ALTER TABLE TopItems
+           ALTER COLUMN IsActive bit NOT NULL;
+           ALTER TABLE TopItems
+           ALTER COLUMN IsVIP bit NULL;
+              
+ */

@@ -1,0 +1,271 @@
+﻿@model DiscountPoolBackbone.Models.TOP.TopItem
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>TopItem</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="PopularRate" class="control-label"></label>
+                <input asp-for="PopularRate" class="form-control" />
+                <span asp-validation-for="PopularRate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Type" class="control-label"></label>
+                <input asp-for="Type" class="form-control" />
+                <span asp-validation-for="Type" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ShorDescription" class="control-label"></label>
+                <input asp-for="ShorDescription" class="form-control" />
+                <span asp-validation-for="ShorDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Author" class="control-label"></label>
+                <input asp-for="Author" class="form-control" />
+                <span asp-validation-for="Author" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LocalPrice" class="control-label"></label>
+                <input asp-for="LocalPrice" class="form-control" />
+                <span asp-validation-for="LocalPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WorldPrice" class="control-label"></label>
+                <input asp-for="WorldPrice" class="form-control" />
+                <span asp-validation-for="WorldPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SmallPhotoId" class="control-label"></label>
+                <input asp-for="SmallPhotoId" class="form-control" />
+                <span asp-validation-for="SmallPhotoId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MainPhotoId" class="control-label"></label>
+                <input asp-for="MainPhotoId" class="form-control" />
+                <span asp-validation-for="MainPhotoId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PhotosIds" class="control-label"></label>
+                <input asp-for="PhotosIds" class="form-control" />
+                <span asp-validation-for="PhotosIds" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LikedUsersIds" class="control-label"></label>
+                <input asp-for="LikedUsersIds" class="form-control" />
+                <span asp-validation-for="LikedUsersIds" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsActive" /> @Html.DisplayNameFor(model => model.IsActive)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsVIP" /> @Html.DisplayNameFor(model => model.IsVIP)
+                </label>
+                <span asp-validation-for="IsVIP" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VipExpirationDate" class="control-label"></label>
+                <input asp-for="VipExpirationDate" class="form-control" />
+                <span asp-validation-for="VipExpirationDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TotalSum" class="control-label"></label>
+                <input asp-for="TotalSum" class="form-control" />
+                <span asp-validation-for="TotalSum" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="InstagramUrl" class="control-label"></label>
+                <input asp-for="InstagramUrl" class="form-control" />
+                <span asp-validation-for="InstagramUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="InstagramLikesCount" class="control-label"></label>
+                <input asp-for="InstagramLikesCount" class="form-control" />
+                <span asp-validation-for="InstagramLikesCount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FacebookUrl" class="control-label"></label>
+                <input asp-for="FacebookUrl" class="form-control" />
+                <span asp-validation-for="FacebookUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FacebookLikesCount" class="control-label"></label>
+                <input asp-for="FacebookLikesCount" class="form-control" />
+                <span asp-validation-for="FacebookLikesCount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VkUrl" class="control-label"></label>
+                <input asp-for="VkUrl" class="form-control" />
+                <span asp-validation-for="VkUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VkLikesCount" class="control-label"></label>
+                <input asp-for="VkLikesCount" class="form-control" />
+                <span asp-validation-for="VkLikesCount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PinterestUrl" class="control-label"></label>
+                <input asp-for="PinterestUrl" class="form-control" />
+                <span asp-validation-for="PinterestUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PinterestLikesCount" class="control-label"></label>
+                <input asp-for="PinterestLikesCount" class="form-control" />
+                <span asp-validation-for="PinterestLikesCount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MediumUrl" class="control-label"></label>
+                <input asp-for="MediumUrl" class="form-control" />
+                <span asp-validation-for="MediumUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MediumLikesCount" class="control-label"></label>
+                <input asp-for="MediumLikesCount" class="form-control" />
+                <span asp-validation-for="MediumLikesCount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AmazonUrl" class="control-label"></label>
+                <input asp-for="AmazonUrl" class="form-control" />
+                <span asp-validation-for="AmazonUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AmazonLikesCount" class="control-label"></label>
+                <input asp-for="AmazonLikesCount" class="form-control" />
+                <span asp-validation-for="AmazonLikesCount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AmazonPrice" class="control-label"></label>
+                <input asp-for="AmazonPrice" class="form-control" />
+                <span asp-validation-for="AmazonPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EbayUrl" class="control-label"></label>
+                <input asp-for="EbayUrl" class="form-control" />
+                <span asp-validation-for="EbayUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EbayLikesCount" class="control-label"></label>
+                <input asp-for="EbayLikesCount" class="form-control" />
+                <span asp-validation-for="EbayLikesCount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EbayPrice" class="control-label"></label>
+                <input asp-for="EbayPrice" class="form-control" />
+                <span asp-validation-for="EbayPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AvitoUrl" class="control-label"></label>
+                <input asp-for="AvitoUrl" class="form-control" />
+                <span asp-validation-for="AvitoUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AvitoLikesCount" class="control-label"></label>
+                <input asp-for="AvitoLikesCount" class="form-control" />
+                <span asp-validation-for="AvitoLikesCount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AvitoPrice" class="control-label"></label>
+                <input asp-for="AvitoPrice" class="form-control" />
+                <span asp-validation-for="AvitoPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OlxUrl" class="control-label"></label>
+                <input asp-for="OlxUrl" class="form-control" />
+                <span asp-validation-for="OlxUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OlxLikesCount" class="control-label"></label>
+                <input asp-for="OlxLikesCount" class="form-control" />
+                <span asp-validation-for="OlxLikesCount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OlxPrice" class="control-label"></label>
+                <input asp-for="OlxPrice" class="form-control" />
+                <span asp-validation-for="OlxPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="KufarUrl" class="control-label"></label>
+                <input asp-for="KufarUrl" class="form-control" />
+                <span asp-validation-for="KufarUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="KufarLikesCount" class="control-label"></label>
+                <input asp-for="KufarLikesCount" class="form-control" />
+                <span asp-validation-for="KufarLikesCount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="KufarPrice" class="control-label"></label>
+                <input asp-for="KufarPrice" class="form-control" />
+                <span asp-validation-for="KufarPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OnlinerUrl" class="control-label"></label>
+                <input asp-for="OnlinerUrl" class="form-control" />
+                <span asp-validation-for="OnlinerUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OnlinerLikesCount" class="control-label"></label>
+                <input asp-for="OnlinerLikesCount" class="form-control" />
+                <span asp-validation-for="OnlinerLikesCount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OnlinerPrice" class="control-label"></label>
+                <input asp-for="OnlinerPrice" class="form-control" />
+                <span asp-validation-for="OnlinerPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="vek21Url" class="control-label"></label>
+                <input asp-for="vek21Url" class="form-control" />
+                <span asp-validation-for="vek21Url" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="vek21LikesCount" class="control-label"></label>
+                <input asp-for="vek21LikesCount" class="form-control" />
+                <span asp-validation-for="vek21LikesCount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="vek21Price" class="control-label"></label>
+                <input asp-for="vek21Price" class="form-control" />
+                <span asp-validation-for="vek21Price" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsAdultContent" /> @Html.DisplayNameFor(model => model.IsAdultContent)
+                </label>
+                <span asp-validation-for="IsAdultContent" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
