@@ -201,5 +201,8 @@ namespace DiscountPoolBackbone.Models.TOP
            ALTER COLUMN IsActive bit NOT NULL;
            ALTER TABLE TopItems
            ALTER COLUMN IsVIP bit NULL;
-              
+   
+    
+    INSERT INTO TopItems (PopularRate, Type, Name, Description, Author, IsActive, IsVIP, IsAdultContent)
+VALUES (0, 4, 'картина 5', 'почти как айвазовски ёпт 1', 1, 1, 0, 0);
  */

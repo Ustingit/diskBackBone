@@ -1,317 +1,91 @@
 ﻿@model IEnumerable<DiscountPoolBackbone.Models.TOP.TopItem>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "ТОП АРТ БЕЛАРУСЬ";
 }
 
-<h1>Index</h1>
+<main class="mt-5">
+    <div class="container-fluid">
+        <section id="grid">
+            <h2 class="mb-5 font-weight-bold text-center">Общий топ беларуского искусства</h2>
+            <div class="row">
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.PopularRate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Type)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ShorDescription)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Author)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LocalPrice)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.WorldPrice)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SmallPhotoId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MainPhotoId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PhotosIds)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LikedUsersIds)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IsActive)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IsVIP)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.VipExpirationDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TotalSum)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.InstagramUrl)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.InstagramLikesCount)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FacebookUrl)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FacebookLikesCount)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.VkUrl)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.VkLikesCount)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PinterestUrl)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PinterestLikesCount)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MediumUrl)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MediumLikesCount)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AmazonUrl)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AmazonLikesCount)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AmazonPrice)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.EbayUrl)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.EbayLikesCount)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.EbayPrice)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AvitoUrl)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AvitoLikesCount)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AvitoPrice)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.OlxUrl)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.OlxLikesCount)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.OlxPrice)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.KufarUrl)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.KufarLikesCount)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.KufarPrice)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.OnlinerUrl)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.OnlinerLikesCount)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.OnlinerPrice)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.vek21Url)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.vek21LikesCount)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.vek21Price)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IsAdultContent)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.PopularRate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Type)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ShorDescription)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Author)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LocalPrice)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.WorldPrice)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SmallPhotoId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MainPhotoId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PhotosIds)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LikedUsersIds)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsActive)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsVIP)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VipExpirationDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TotalSum)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.InstagramUrl)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.InstagramLikesCount)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FacebookUrl)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FacebookLikesCount)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VkUrl)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VkLikesCount)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PinterestUrl)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PinterestLikesCount)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MediumUrl)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MediumLikesCount)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AmazonUrl)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AmazonLikesCount)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AmazonPrice)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EbayUrl)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EbayLikesCount)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EbayPrice)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AvitoUrl)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AvitoLikesCount)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AvitoPrice)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OlxUrl)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OlxLikesCount)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OlxPrice)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.KufarUrl)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.KufarLikesCount)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.KufarPrice)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OnlinerUrl)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OnlinerLikesCount)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OnlinerPrice)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.vek21Url)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.vek21LikesCount)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.vek21Price)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsAdultContent)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.PopularRate)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Type)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Name)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.ShorDescription)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Description)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Author)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.LocalPrice)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.WorldPrice)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.PopularRate)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Type)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ShorDescription)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Description)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Author)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.LocalPrice)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.WorldPrice)
+                                </td>
+                                <td>
+                                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+
+            </div>
+
+        </section>
+    </div>
+</main>
+
+
+
+
+
