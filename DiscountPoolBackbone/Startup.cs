@@ -13,6 +13,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using DiscountPoolBackbone.Models;
+using Microsoft.Extensions.FileProviders;
+using System.IO;
 
 namespace DiscountPoolBackbone
 {
@@ -74,6 +76,13 @@ namespace DiscountPoolBackbone
 				//context.Database.Migrate();
 				//context.Database.EnsureCreated();
 			}
+
+			app.UseStaticFiles(new StaticFileOptions
+			{
+				FileProvider = new PhysicalFileProvider(
+					Path.Combine(Directory.GetCurrentDirectory(), "Static")),
+				RequestPath = "/StaticFiles"
+			});
 		}
 	}
 }

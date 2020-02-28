@@ -11,6 +11,7 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.AspNetCore.Identity.UI.UIFrameworkAttribute("Bootstrap4")]
 [assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("aspnet-DiscountPoolBackbone-352AC451-3F1F-44B3-96BB-B1AEA9C82032")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("DiscountPoolBackbone")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]

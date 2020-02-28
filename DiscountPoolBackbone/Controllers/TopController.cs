@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DiscountPoolBackbone.Models;
 using DiscountPoolBackbone.Models.TOP;
+using DiscountPoolBackbone.Models.Pagination;
+using DiscountPoolBackbone.Helpers.Pagination;
 
 namespace DiscountPoolBackbone.Controllers
 {
@@ -23,6 +25,23 @@ namespace DiscountPoolBackbone.Controllers
         public async Task<IActionResult> Index()
         {
             return View(await _context.TopItems.ToListAsync());
+        }
+
+        public async Task<IActionResult> Index2(int page = 1)
+        {
+            int pageSize = 9;
+            IQueryable<TopItem> source = _context.TopItems;
+            var count = await source.CountAsync();
+            var items = await source.Skip((page - 1) * pageSize).Take(pageSize).ToListAsync();
+
+            PageViewModel pageViewModel = new PageViewModel(count, page, pageSize);
+            PaginatedTopModel viewModel = new PaginatedTopModel
+            {
+                PageViewModel = pageViewModel,
+                TopItems = items
+            };
+
+            return View(viewModel);
         }
 
         // GET: Top/Details/5
