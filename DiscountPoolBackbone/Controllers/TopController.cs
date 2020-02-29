@@ -9,6 +9,8 @@ using DiscountPoolBackbone.Models;
 using DiscountPoolBackbone.Models.TOP;
 using DiscountPoolBackbone.Models.Pagination;
 using DiscountPoolBackbone.Helpers.Pagination;
+using DiscountPoolBackbone.TopCalculations.Rate;
+using System.Security.Claims;
 
 namespace DiscountPoolBackbone.Controllers
 {
@@ -68,15 +70,41 @@ namespace DiscountPoolBackbone.Controllers
             return View();
         }
 
+        private int GetUserIdFromContext()
+        {
+            var isUserFound = int.TryParse(User.FindFirstValue(ClaimTypes.NameIdentifier), out int userId);
+            return isUserFound ? userId : 1;
+        }
+
+        private void InitializeVIP(TopItem item)
+        {
+            if (false) //TODO: replace with checking some transaction
+            {
+                item.IsVIP = true;
+                item.VipExpirationDate = DateTime.Now.AddDays(7);
+            }
+        }
+
+        private void InitializeAdultCheck(TopItem item)
+        {
+            //TODO: item.IsAdultContent = item.IsAdultContent && AdultChecker.IsPossiblyAdultContent(item);   image recognition ? or googling ? or smth like that ? 
+        }
+
         // POST: Top/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,PopularRate,Type,Name,ShorDescription,Description,Author,LocalPrice,WorldPrice,SmallPhotoId,MainPhotoId,PhotosIds,LikedUsersIds,IsActive,IsVIP,VipExpirationDate,TotalSum,InstagramUrl,InstagramLikesCount,FacebookUrl,FacebookLikesCount,VkUrl,VkLikesCount,PinterestUrl,PinterestLikesCount,MediumUrl,MediumLikesCount,AmazonUrl,AmazonLikesCount,AmazonPrice,EbayUrl,EbayLikesCount,EbayPrice,AvitoUrl,AvitoLikesCount,AvitoPrice,OlxUrl,OlxLikesCount,OlxPrice,KufarUrl,KufarLikesCount,KufarPrice,OnlinerUrl,OnlinerLikesCount,OnlinerPrice,vek21Url,vek21LikesCount,vek21Price,IsAdultContent")] TopItem topItem)
+        public async Task<IActionResult> Create([Bind("Id,Type,Name,ShorDescription,Description,LocalPrice,WorldPrice,SmallPhotoId,MainPhotoId,PhotosIds,TotalSum,InstagramUrl,InstagramLikesCount,FacebookUrl,FacebookLikesCount,VkUrl,VkLikesCount,PinterestUrl,PinterestLikesCount,MediumUrl,MediumLikesCount,AmazonUrl,AmazonLikesCount,AmazonPrice,EbayUrl,EbayLikesCount,EbayPrice,AvitoUrl,AvitoLikesCount,AvitoPrice,OlxUrl,OlxLikesCount,OlxPrice,KufarUrl,KufarLikesCount,KufarPrice,OnlinerUrl,OnlinerLikesCount,OnlinerPrice,vek21Url,vek21LikesCount,vek21Price,IsAdultContent")] TopItem topItem)
         {
             if (ModelState.IsValid)
             {
+                topItem.PopularRate = new CalculateRate().Calculate(topItem);
+                topItem.Author = GetUserIdFromContext(); //TODO: only authorised users can create new items
+                InitializeVIP(topItem);
+                InitializeAdultCheck(topItem);
+                topItem.IsActive = true;
+
                 _context.Add(topItem);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

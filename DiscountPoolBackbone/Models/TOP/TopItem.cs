@@ -17,6 +17,8 @@ namespace DiscountPoolBackbone.Models.TOP
         public TopItemType Type { get; set; }
         public string Name { get; set; }
         public string ShorDescription { get; set; }
+
+        [DataType(DataType.MultilineText)]
         public string Description { get; set; }
         public int Author { get; set; }
 
