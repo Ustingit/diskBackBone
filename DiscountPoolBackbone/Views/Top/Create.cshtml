@@ -57,10 +57,11 @@
                 <input asp-for="PhotosIds" class="form-control" />
                 <span asp-validation-for="PhotosIds" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="TotalSum" class="control-label"></label>
-                <input asp-for="TotalSum" class="form-control" />
-                <span asp-validation-for="TotalSum" class="text-danger"></span>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsAdultContent" /> @Html.DisplayNameFor(model => model.IsAdultContent)
+                </label>
+                <span asp-validation-for="IsAdultContent" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="InstagramUrl" class="control-label"></label>
@@ -217,12 +218,43 @@
                 <input asp-for="vek21Price" class="form-control" />
                 <span asp-validation-for="vek21Price" class="text-danger"></span>
             </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="IsAdultContent" /> @Html.DisplayNameFor(model => model.IsAdultContent)
-                </label>
-                <span asp-validation-for="IsAdultContent" class="text-danger"></span>
+
+
+            @{
+                var show21vek = false;
+                var showOnliner = false;
+                var showKufar = false;
+                var showOlx = false;
+                var showAvito = false;
+                var showEbay = false;
+                var showAmazon = false;
+                var showMedium = false;
+                var showVk = false;
+                var showPinterest = false;
+                var showFacebook = false;
+                var showInsta = false;
+            }
+
+            <div>
+                <p><input type="checkbox" name="a" value=@showInsta> Instagramm</p>
+                @{
+                    if (showInsta)
+                    { <p>AZAZAZA</p> }
+                }
+
+                <p><input type="checkbox" name="a" value=@showFacebook> Facebook</p>
+                <p><input type="checkbox" name="a" value=@showPinterest> Pinterest</p>
+                <p><input type="checkbox" name="a" value=@showVk> Vk</p>
+                <p><input type="checkbox" name="a" value=@showMedium> Medium</p>
+                <p><input type="checkbox" name="a" value=@showAmazon> Instagramm</p>
+                <p><input type="checkbox" name="a" value=@showEbay>Facebook</p>
+                <p><input type="checkbox" name="a" value=@showAvito>VK</p>
+                <p><input type="checkbox" name="a" value=@showOlx>Pinterest</p>
+                <p><input type="checkbox" name="a" value=@showKufar> 2010</p>
+                <p><input type="checkbox" name="a" value=@showOnliner> 2010</p>
+                <p><input type="checkbox" name="a" value=@show21vek> 2010</p>
             </div>
+
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>

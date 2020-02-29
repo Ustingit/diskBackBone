@@ -138,6 +138,11 @@ namespace DiscountPoolBackbone.Models.TOP
         public decimal? vek21Price { get; set; }
 
         public bool IsAdultContent { get; set; }
+
+        #region WorkingProperties
+
+
+        #endregion
     }
 }
 

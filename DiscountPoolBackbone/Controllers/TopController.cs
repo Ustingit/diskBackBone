@@ -82,6 +82,11 @@ namespace DiscountPoolBackbone.Controllers
             {
                 item.IsVIP = true;
                 item.VipExpirationDate = DateTime.Now.AddDays(7);
+                //item.TotalSum = someTransaction.Sum;
+            } else
+            {
+                item.IsVIP = false;
+                item.TotalSum = 0;
             }
         }
 
@@ -95,7 +100,7 @@ namespace DiscountPoolBackbone.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Type,Name,ShorDescription,Description,LocalPrice,WorldPrice,SmallPhotoId,MainPhotoId,PhotosIds,TotalSum,InstagramUrl,InstagramLikesCount,FacebookUrl,FacebookLikesCount,VkUrl,VkLikesCount,PinterestUrl,PinterestLikesCount,MediumUrl,MediumLikesCount,AmazonUrl,AmazonLikesCount,AmazonPrice,EbayUrl,EbayLikesCount,EbayPrice,AvitoUrl,AvitoLikesCount,AvitoPrice,OlxUrl,OlxLikesCount,OlxPrice,KufarUrl,KufarLikesCount,KufarPrice,OnlinerUrl,OnlinerLikesCount,OnlinerPrice,vek21Url,vek21LikesCount,vek21Price,IsAdultContent")] TopItem topItem)
+        public async Task<IActionResult> Create([Bind("Id,Type,Name,ShorDescription,Description,LocalPrice,WorldPrice,SmallPhotoId,MainPhotoId,PhotosIds,InstagramUrl,InstagramLikesCount,FacebookUrl,FacebookLikesCount,VkUrl,VkLikesCount,PinterestUrl,PinterestLikesCount,MediumUrl,MediumLikesCount,AmazonUrl,AmazonLikesCount,AmazonPrice,EbayUrl,EbayLikesCount,EbayPrice,AvitoUrl,AvitoLikesCount,AvitoPrice,OlxUrl,OlxLikesCount,OlxPrice,KufarUrl,KufarLikesCount,KufarPrice,OnlinerUrl,OnlinerLikesCount,OnlinerPrice,vek21Url,vek21LikesCount,vek21Price,IsAdultContent")] TopItem topItem)
         {
             if (ModelState.IsValid)
             {
