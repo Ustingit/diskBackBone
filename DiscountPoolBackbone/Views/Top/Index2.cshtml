@@ -1,40 +1,74 @@
-﻿@using DiscountPoolBackbone.Models
+﻿@using DiscountPoolBackbone.Models.TOP
+@using DiscountPoolBackbone.Models
 @model DiscountPoolBackbone.Helpers.Pagination.PaginatedTopModel
-@addTagHelper *, FilterSortPagingApp
+@addTagHelper *, DiscountPoolBackbone
 @{
     ViewData["Title"] = "ТОП АРТ БЕЛАРУСЬ";
 }
 
 <main class="mt-5">
-    <div class="container-fluid">
+    <div class="container-fluid col-10">
         <section id="grid">
             <h2 class="mb-5 font-weight-bold text-center">Общий топ беларуского искусства</h2>
-            <div class="row">
-                <div class="card-group">
-                    @foreach (var item in Model.TopItems)
-                    {
-                        <div class="card">
-                            @{
-                                var imgUrl = (item.MainPhotoId != null) ? item.MainPhotoId.ToString() : @Url.Content("~/Static/Images/Defaults/404item.png") ; // "~/StaticFiles/Images/Defaults/404item.png";
-                                var shortDescription = item.Description.Length > 50 ? item.Description.Substring(0, 47) + "..." : item.Description;
-                            }
+            @{
+                var resultList = new SortedList<int, List<TopItem>>();
+                var tempList = new List<TopItem>();
 
-                            <img src="@Url.Content("~/Static/Images/Defaults/404item.png")" class="card-img-top" alt="card-photo">
-                            <div class="card-body">
-                                <h5 class="card-title">@item.Name</h5>
-                                <p class="card-text">@shortDescription</p>
-                                <p class="card-text">
-                                    <small class="text-muted">
-                                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                                        <a asp-action="Details" asp-route-id="@item.Id">Details</a>
-                                    </small>
-                                </p>
-                            </div>
-                        </div>
+                var sortIndex = 3;
+                var arIndex = 0;
+                var count = Model.TopItems.Count();
+                foreach (var item in Model.TopItems)
+                {
+                    if (arIndex < sortIndex)
+                    {
+                        tempList.Add(item);
                     }
+                    else
+                    {
+                        resultList.Add(sortIndex, new List<TopItem>(tempList));
+                        tempList.Clear();
+                        tempList.Add(item);
+                        sortIndex += 3;
+                    }
+                    if (arIndex == count - 1)
+                    {
+                        resultList.Add(sortIndex, new List<TopItem>(tempList));
+                    }
+
+                    arIndex += 1;
+                }
+            }
+
+            @foreach (var outerItem in resultList)
+            {
+                <div class="row">
+                    <div class="card-group">
+                        @foreach (var innerItem in outerItem.Value)
+                        {
+                            <div class="card col-lg-4 col-md-6 mb-4">
+                                @{
+                                    var imgUrl = (innerItem.MainPhotoId != null) ? innerItem.MainPhotoId.ToString() : @Url.Content("~/Static/Images/Defaults/404item.png");
+                                    var shortDescription = innerItem.Description.Length > 50 ? innerItem.Description.Substring(0, 47) + "..." : innerItem.Description;
+                                }
+
+                                <img src="@Url.Content("~/StaticFiles/Images/Defaults/404item.png")" class="card-img-top" alt="card-photo">
+                                <div class="card-body">
+                                    <h5 class="card-title">@innerItem.Name</h5>
+                                    <p class="card-text">@shortDescription</p>
+                                    <p class="card-text">
+                                        <small class="text-muted">
+                                            <a asp-action="Edit" asp-route-id="@innerItem.Id">Edit</a> |
+                                            <a asp-action="Details" asp-route-id="@innerItem.Id">Details</a>
+                                        </small>
+                                    </p>
+                                </div>
+                            </div>
+                        }
+                    </div>
                 </div>
-                <page-link page-model="Model.PageViewModel" page-action="Index2"></page-link>
-            </div>
+            }
+
+            <page-link page-model="Model.PageViewModel" page-action="Index2"></page-link>
         </section>
     </div>
 </main>
